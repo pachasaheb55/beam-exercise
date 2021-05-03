@@ -22,9 +22,11 @@ Pre-requisites: Project is built and validated using the following software
 5. To run the django server execute the command "python manage.py runserver 8001", and open browser and navigate to http://localhost:8000/beam/exercise1/ to see the home page.
 
 # Work Flow
-1. In Home Page(http://localhost:8000/beam/exercise1/) 3 sections are availabe
+1. In Home Page(http://localhost:8000/beam/exercise1/) 2 sections are availabe
       a. Google Map with all the saved locations of the scooters,
       b. Below Maps there are Two flip cards which can preform a 
-          i)saveScooters--(needs Latitude,Logitude,Scooters Count) which are displayed on the map
-          ii)
+          i)Drop a Scooter(saveScooters--needs Latitude,Logitude,Scooters Count) which are displayed on the map after saving the location.
+          ii)Search a Scooter(searchScooters--takes Latitude,Logitude, distance, measurement) which gives the results of nearby locations both in map and in table below.
 
+2. In http://localhost:8000/beam/exercise2/, there is description for the technical design for the given problem statement.
+3. In http://localhost:8000/beam/exercise3/, cover letter(work in progress)
