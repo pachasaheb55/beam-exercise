@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+{%load static%}
+
+{% block content %}
+
+<br>
+<div id="googleMap"></div>
+<br>
+<br>
+<div class="row" id="section1">
+  <div class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front" style="background-color: #007bff;;">
+        <img src="{%static 'img/kick-scooter.png' %}" alt="Avatar" style="width:250px;height:300px;">
+        <h1><b>Drop a Scooter</b></h1>
+
+      </div>
+      <div class="flip-card-back">
+        <div class="card-items">
+          <div class="row field">
+            <input type="text" class="form-control" id="lat" placeholder="Latitude" aria-label="Latitude" required>
+          </div>
+          <div class="row field">
+            <input type="text" class="form-control" id="long" placeholder="Longitude" aria-label="Longitude" required>
+          </div>
+          <div class="row field">
+            <input type="number" class="form-control" id="scooters" placeholder="Scooters" aria-label="Scooters"
+              required>
+          </div>
+          <div class="row field">
+            <button class="form-control btn-primary" onclick="saveScooters()">Save a Location</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="saveScooter">
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front" style="background-color: #007bff;">
+          <img src="{%static 'img/marker.png' %}" alt="Avatar"
+            style="width:150px;height:300px;background-color: #007bff;">
+          <h1><b>Search for Scooter</b></h1>
+
+        </div>
+        <div class="flip-card-back">
+          <div class="card-items">
+            <div class="row field">
+              <input type="text" class="form-control" id="lat-search" placeholder="Latitude" aria-label="Latitude"
+                required>
+            </div>
+            <div class="row field">
+              <input type="text" class="form-control" id="long-search" placeholder="Longitude" aria-label="Longitude"
+                required>
+            </div>
+            <div class="row field">
+              <input type="number" class="form-control" id="distance" placeholder="Distance" aria-label="Distance"
+                required>
+            </div>
+            <div class="row field">
+              <select class="form-control" id="measurement" required>
+                <option value="m">meter(m)</option>
+                <option value="km">kilometer(km)</option>
+                <option value="mile">mile</option>
+              </select>
+            </div>
+
+            <div class="row field">
+              <a href="#section1"><button class="form-control btn-primary"
+                  onclick="searchScooters()">Search</button></a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<br>
+<div class="container" style="width:80%;">
+  <div class="table table-responsive">
+    <!-- Table to view Feature Request Details -->
+    <table class="table table-bordered" id="Locations_Table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Latitude</th>
+          <th>Longitude</th>
+          <th>Scooters</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+
+
+
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhqTKTlYJjzOU2cAemPtCp3M_4nfuxXuk 
+&callback=myMap"></script>
+
+  {% endblock %}

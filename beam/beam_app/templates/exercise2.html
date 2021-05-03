@@ -1,0 +1,182 @@
+{% extends "base.html" %}
+{%load static%}
+
+{% block content %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .container {
+      padding: 64px;
+    }
+
+    .row:after {
+      content: "";
+      display: table;
+      clear: both
+    }
+
+    .column-66 {
+      float: left;
+      width: 66.66666%;
+      padding: 20px;
+    }
+
+    .column-33 {
+      float: left;
+      width: 33.33333%;
+      padding: 20px;
+    }
+
+    .large-font {
+      font-size: 48px;
+    }
+
+    .xlarge-font {
+      font-size: 64px
+    }
+
+    .button {
+      border: none;
+      color: white;
+      padding: 14px 28px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #04AA6D;
+    }
+
+    img {
+      display: block;
+      height: auto;
+      max-width: 100%;
+    }
+
+    @media screen and (max-width: 1000px) {
+
+      .column-66,
+      .column-33 {
+        width: 100%;
+        text-align: center;
+      }
+
+      img {
+        margin: auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <br>
+  <div style="text-align:center">
+    <h1><b>TECHNICAL DESIGN</b></h1>
+    <p>Requirement: Lets say there is a plot of all Scooters in Singapore on a map(Hundreds of Thousands) for our
+      operations
+      team to understand where the scooters are currently are. Focus on Usability, Performance, Scalability.
+    </p>
+  </div>
+  <!-- The App Section -->
+  <div class="container">
+    <div class="row">
+      <div class="column">
+        <h1 class="xlarge-font"><b>GOOGLE MAPS</b></h1>
+        <p>Imagine all the Markers of Scooters are already present on the map. For the operations team to
+          understand/analyse the scooter locations will be difficult if there are hunderds of scooters all over the map.
+          Hence Google Maps provide a different options/shapes on the maps.</p>
+        <h3><b>Solution:</b></h3>
+        <p>Using Google Maps Shapes on the Front End we can divide the different locations of scooters into different
+          grids
+          or Sectors, where operations team can operate sector/grid/shapewise. Following the "Divide and Rule" concept
+          we can divide all the scooters into bunch of sectors and can give a visual representation by using the Google
+          Maps
+          Shapes options which are mentioned below. </p>
+
+        <h3><b>a. CIRCLES</b></h3>
+        <img src="{%static 'img/circle.PNG' %}" alt="Avatar">
+        <br>
+
+        <h3><b>b. RECTANGLES</b></h3>
+        <img src="{%static 'img/rectangle.PNG' %}" alt="Avatar">
+        <br>
+
+        <h3><b>c. POLYGON</b></h3>
+        <img src="{%static 'img/polygon.PNG' %}" alt="Avatar">
+        <br>
+          <h4><b>Usability:</b></h4><p>As we all know that Google Maps are accepted universal, so represention using the google maps 
+            would be easier. Using all the Latitude and Longitude data we can find the number of vehicles region wise. 
+            Using Google Maps API's like Geolocation and Distance Matrix we can provide more accurate data to the operation team 
+            members about the distance/location of the scooter. All Documentation are availalbe/free where developers
+            can easily learn and start using.
+          </p>
+          <h4><b>Performance:</b></h4>
+          <p>Performance wise, GOOGLE Maps API can provide data smoothly and fast enough, we can use any front end frameworks
+            like Angular, React, Vue or simply javascript can do the job. We can integrate easily and start coding. Using Google Maps
+            there will be more. Security wise Google Maps provide an API key for every project linked which can be used 
+            to access the Api's.
+          </p>
+          <h4><b>Scalability:</b></h4>
+          <p>Google Maps API are scalable each and everytime, where we can increase number of locations usage
+            and we can easily use the distance ranges with different modes like traffic, walking etc. and using the 
+            location data we can generate the Graphs like Pie Charts, Histograms etc., according to different regions which will be helpful
+            for operations team to plan their drops or pickups of scooters or to monitor the scooters.
+          </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="column">
+        <h1 class="xlarge-font"><b>Python</b></h1>
+        <p>While Google Maps/Graphs/Plots can give us a UI representation of data, but we need to have server side logic which will retrieve all the saved locations
+          from the connected database and calculate the nearby regions or classify the scooters according to regions.
+          This Server Side Implementation can be done Python Frameworks/Libraries like Django, Flask, numpy etc.
+        </p>
+        <h3><b>Solution:</b></h3>
+        <p>Using Python Libraries, we can connect to Database by creating connections, inorder to retrieve the saved
+          locations of the scooters and we can make requests/calls to google maps apis with Latitude and Longitude
+          for getting the city/region names. Using ORMs like Django ORM or SqlAlchemy we can connect to database and 
+          can faster operations. Using these web frameworks we can build REST API's which will handle the data required
+          for the maps to load.
+        </p>
+
+        <br>
+          <h4><b>Usability:</b></h4><p>
+            Python offers a vast range of Libraries and easy to learn coding, so that work can be done faster and 
+            smoother. Using Python Web Framework like Django, Flask, Fast API etc, we can REST API's which can be secured
+            by using different Security Protocols like JWT tokens, OAUTH etc. Each and every Framework has its own set of
+            Documentation with wide range of examples/scenarios which can be learned easily.
+          </p>
+          <h4><b>Performance:</b></h4>
+          <p>Performance wise, Any website should be faster in taking the request and giving an Immediate Response, which 
+            can be achieved by any web frameworks present in the python. As Object Relational Mappers are used in Python
+            which will be in the forms of python classes and objects, can interact easily with database and can Perform
+            the CRUD operations. We can actually save the scooter location which has Latitude and Longitude along with 
+            the area or city or region name, so that on retirval we can group them according to their own sectors which
+            will give a good UI representation for the ops team to work on.
+          </p>
+          <h4><b>Scalability:</b></h4>
+          <p> All the web frameworks used in Python are scalable, meaning we can increase the functionalities, userscount,
+            efficiency of the API's, we can integrate with any third party packages and are deployable on any cloud server,
+            like Amazon, Azure, Google Cloud etc.
+          </p>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
+
+{% endblock %}
