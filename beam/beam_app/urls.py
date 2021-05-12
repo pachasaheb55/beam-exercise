@@ -1,5 +1,6 @@
 from django.urls import path
 from . import views
+# URLs for the APIs
 urlpatterns = [
     path('exercise1/', views.exercise1_beam),
     path('exercise2/', views.exercise2_beam),
