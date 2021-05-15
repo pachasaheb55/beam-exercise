@@ -1,7 +1,7 @@
 //Global variable declaration
-var url = 'http://localhost:8000/';
+var url = 'http://localhost:8001/';
 var locations, lat, long, distance, measurement;
-var singaporeLatLng = { lat: 1.361362, lng: 103.820890, center: 15 };
+var singaporeLatLng = { lat: 1.348555	, lng: 103.850188, center: 15 };
 
 //Function to execute on page load
 $(document).ready(function () {
@@ -17,7 +17,7 @@ function myMap() {
     zoom: '',
   };
   // if condition to check for user search lat and long
-  if (lat == '' && long == '') {
+  if (lat == undefined && long == undefined) {
     // Assigning Singaport Location as center for map
     mapProp.center = new google.maps.LatLng(singaporeLatLng.lat, singaporeLatLng.lng);
     mapProp.zoom = singaporeLatLng.center
@@ -30,15 +30,17 @@ function myMap() {
   // initialize a map 
   var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
   // for loop for marking the scooters on map
-  for (loc of locations) {
-    //marker on google map
-    new google.maps.Marker({
-      position: new google.maps.LatLng(loc.latitude, loc.longitude),
-      map,
-      icon: url + 'static/img/scooter.png/',
-      // displays to total number of scooters available at a location
-      title: String(loc.scooters)
-    });
+  if (locations != undefined) {
+    for (loc of locations) {
+      //marker on google map
+      new google.maps.Marker({
+        position: new google.maps.LatLng(loc.latitude, loc.longitude),
+        map,
+        icon: url + 'static/img/scooter.png/',
+        // displays to total number of scooters available at a location
+        title: String(loc.scooters)
+      });
+    }
   }
   // checking for distance and converting into meters
   if (measurement == 'km') {
@@ -48,7 +50,7 @@ function myMap() {
     distance = distance * 1609.34
   }
   // creating a circle shape on map according to radius given
-  if (lat != '' && long != '') {
+  if (lat != undefined && long != undefined) {
     // Add the circle for this city to the map.
     new google.maps.Circle({
       strokeColor: "#FF0000",

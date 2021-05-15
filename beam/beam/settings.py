@@ -79,10 +79,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'beam',
-        'HOST': '127.0.0.1',
+        'HOST': 'bar-db.cywuzonjdk9b.us-east-2.rds.amazonaws.com',
         'PORT': '3306',
-        'USER': 'root',
-        'PASSWORD': 'root',
+        'USER': 'admin',
+        'PASSWORD': 'adminbar',
     }
 }
 

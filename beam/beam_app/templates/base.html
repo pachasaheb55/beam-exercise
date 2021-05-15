@@ -18,7 +18,6 @@
   <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
   <script src="{%static 'js/base.js' %}"></script>
   <link rel="stylesheet" href="{% static 'css/base.css'%}">
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhqTKTlYJjzOU2cAemPtCp3M_4nfuxXuk&callback=myMap"></script>
 </head>
 
 <!-- Base HTML Content -->
@@ -41,6 +40,7 @@
   </nav>
   <!-- Template Inheritance -->
   {% block content %}{% endblock %}
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhqTKTlYJjzOU2cAemPtCp3M_4nfuxXuk&callback=myMap"></script>
 
 </body>
 
